@@ -207,7 +207,7 @@
     [self initMenuScrollView];
     [self initImageScrollView];
     
-    [self setMenuView];
+    [self refreshToolSettings];
     
     if(_imageView==nil){
         _imageView = [UIImageView new];
@@ -414,8 +414,10 @@
 
 #pragma mark- 
 
-- (void)setMenuView
+- (void)refreshToolSettings
 {
+    for(UIView *sub in _menuView.subviews){ [sub removeFromSuperview]; }
+    
     CGFloat x = 0;
     CGFloat W = 70;
     CGFloat H = _menuView.height;
